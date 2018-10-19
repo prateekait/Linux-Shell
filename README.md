@@ -17,12 +17,31 @@ The command shell is the interface between the user and the OS in the linux.As c
               
 (c) mycd    : Change current working directory (CWD) to specified directory.
 
-(d) myrm    : Remove directory or a file.If directory is to be removed, the files inside the directory must be deleted prior to               deletion of the directory.
+(d) myrm    : Remove directory or a file.If directory is to be removed, the files inside the directory must be deleted prior               to deletion of the directory.
               Sample Inputs :
                 Remove file(s)                      : myrm file1 file2 file3
                 Remove empty directory              : myrm -d dir2
                 Remove a directory and its contents : myrm-r dir2
                 
-(e) mymv : 
+(e) mymv : Move a file/Directory from one location to another. Delete the orginal directory after moving the contents.
+           Sample Inputs:
+            mymv sourceDirectory targetDirectory
+            mymv sourceFile targetFile
+(f) myps : List all processes for the current user without regards to the present terminal.
+           Options:
+            -a List all processes running on the system.
+(g) myls : List the directory contents. Output should be same as ls -l on a linux shell.
+
+(h) mytail : Print the last 'n' lines of the input file
+             Options:
+              <N> Number of lines from end to print
+              <filename> Filename of input file.
+             Sample Input:
+                mytail -10 file1.txt
               
+The above given programs need to be programmed with standard C functions for UNIX. All the commands should be able to handle absolute and relative path as well as combination about wherever applicable as in a real shell interface. The shell will work as follows: 
+1. Show prompt and wait for user input. 
+2. On receiving the input the shell should fork a child process
+   a.) Sample Input:  [/home/user]myshell mymkdir /home/user/newDir 
+3. In the child process call exec family functions to load a program corresponding to the input command.
       
